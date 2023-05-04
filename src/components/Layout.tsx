@@ -15,11 +15,12 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       <div className="top-pane">
         <img src={logo} alt="flair airlines logo" />
         <div className="search">
-          <TextField
+          <input
+            className="search-input"
             name="search"
             id="search"
             value={search}
-            handler={handleSearchInputChange}
+            onChange={handleSearchInputChange}
             type="text"
             placeholder="Search by Airport "
           />

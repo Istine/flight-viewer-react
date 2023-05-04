@@ -5,6 +5,8 @@ body {
 
 .layout-container {
   width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
   position: relative;
 }
 
@@ -37,6 +39,13 @@ body {
   margin-left: 7.7rem;
 }
 
+.layout-container .top-pane .search input.search-input {
+  outline: none;
+  border: 1px solid rgb(202, 202, 202);
+  padding: 0.7rem 1rem;
+  border-radius: 5px;
+}
+
 .layout-container .top-pane .search-icon {
   width: 23px;
   height: 23px;
@@ -61,15 +70,19 @@ body {
   height: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  padding: 3em 0;
 }
 
-.layout-container .left-pane .main-content table {
+.layout-container .left-pane-wrapper .main-content table {
   width: 100%;
 }
 
 .layout-container .left-pane-wrapper .main-content table {
   width: 100%;
+}
+
+.layout-container .left-pane-wrapper .main-content table thead {
+  display: flex;
 }
 
 .layout-container .left-pane-wrapper .main-content table tr {

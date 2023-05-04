@@ -3,10 +3,12 @@ import departureAirport from "../assets/airport.png";
 import time from "../assets/time.png";
 import arrivalAirport from "../assets/airport2.png";
 
-const Table: React.FC<{}> = () => {
+export type IOpenSkyData = { [key: string]: string }[];
+
+const Table: React.FC<{ data: IOpenSkyData }> = ({ data }) => {
   return (
     <table>
-      <tr>
+      <thead>
         <th>
           <span>Flight</span>
           <img src={airplane} alt="flight icon" />
@@ -27,22 +29,17 @@ const Table: React.FC<{}> = () => {
           <span>Arrival Time</span>
           <img src={time} alt="arrival time icon" />
         </th>
-      </tr>
+      </thead>
       <tbody>
-        <tr>
-          <td>SWG9426</td>
-          <td>CYYZ</td>
-          <td>12:01:57 PM GMT</td>
-          <td>CYUL</td>
-          <td>12:57:56 PM GMT</td>
-        </tr>
-        <tr>
-          <td>SWG9426</td>
-          <td>CYYZ</td>
-          <td>12:01:57 PM GMT</td>
-          <td>CYUL</td>
-          <td>12:57:56 PM GMT</td>
-        </tr>
+        {data.map((record, key) => (
+          <tr key={key}>
+            <td>{record.callsign}</td>
+            <td>{record.estDepartureAirport}</td>
+            <td>{record.firstSeen}</td>
+            <td>{record.estArrivalAirport}</td>
+            <td>{record.lastSeen}</td>
+          </tr>
+        ))}
       </tbody>
     </table>
   );
