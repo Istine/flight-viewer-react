@@ -46,16 +46,20 @@ const Login: React.FC<{}> = () => {
         </p>
         <form>
           <TextField
-            type="text"
+            type="email"
             name="email"
+            id="email"
             handler={handleFormChange}
             value={loginFormState.email}
             placeholder="mike@flysafe.com"
+            required={true}
             InputAdornment={<GoMention color="#322a43" />}
           />
           <TextField
             type="password"
             name="password"
+            id="password"
+            required={true}
             handler={handleFormChange}
             value={loginFormState.password}
             placeholder="password"
@@ -72,9 +76,9 @@ const Login: React.FC<{}> = () => {
               marginBottom: "1rem",
             }}
           >
-            <CheckBox
-              text="remember me"
-              handler={handleCheckbox}
+            <div
+              className="form-control"
+              onClick={handleCheckbox}
               style={{
                 width: "95px",
                 border: "none",
@@ -83,8 +87,9 @@ const Login: React.FC<{}> = () => {
                 backgroundColor: "white",
                 margin: 0,
               }}
-              value={loginFormState.check}
-            />
+            >
+              <CheckBox text="remember me" value={loginFormState.check} />
+            </div>
             <span className="forgot-password">forgot password</span>
           </div>
           <Button text="login" handler={onSubmit} />
