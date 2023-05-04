@@ -28,6 +28,22 @@ const Table: React.FC<{}> = () => {
           <img src={time} alt="arrival time icon" />
         </th>
       </tr>
+      <tbody>
+        <tr>
+          <td>SWG9426</td>
+          <td>CYYZ</td>
+          <td>12:01:57 PM GMT</td>
+          <td>CYUL</td>
+          <td>12:57:56 PM GMT</td>
+        </tr>
+        <tr>
+          <td>SWG9426</td>
+          <td>CYYZ</td>
+          <td>12:01:57 PM GMT</td>
+          <td>CYUL</td>
+          <td>12:57:56 PM GMT</td>
+        </tr>
+      </tbody>
     </table>
   );
 };
