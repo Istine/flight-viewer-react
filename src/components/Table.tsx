@@ -3,6 +3,7 @@ import departureAirport from "../assets/airport.png";
 import time from "../assets/time.png";
 import arrivalAirport from "../assets/airport2.png";
 import Badge from "./Badge";
+import { formatTime } from "../utils";
 
 export type IOpenSkyData = { [key: string]: string }[];
 
@@ -50,7 +51,7 @@ const Table: React.FC<{ data: IOpenSkyData }> = ({ data }) => {
             </td>
             <td>
               {record.firstSeen ? (
-                record.firstSeen
+                formatTime(parseInt(record.firstSeen))
               ) : (
                 <Badge text="not available" />
               )}
@@ -64,7 +65,7 @@ const Table: React.FC<{ data: IOpenSkyData }> = ({ data }) => {
             </td>
             <td>
               {record.lastSeen ? (
-                record.lastSeen
+                formatTime(parseInt(record.lastSeen))
               ) : (
                 <Badge text="not available" />
               )}

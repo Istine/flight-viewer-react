@@ -3,6 +3,7 @@
   width: auto;
   list-style: none;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .pagination .page-link {
@@ -38,4 +39,11 @@
 
 .pagination .active {
   background-color: #362d4a;
+}
+
+@media screen and (max-width: 600px) {
+  .pagination {
+    width: 100%;
+    justify-content: flex-start;
+  }
 }

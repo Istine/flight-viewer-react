@@ -1,3 +1,9 @@
+*,
+html {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   box-sizing: border;
@@ -12,14 +18,17 @@ body {
 
 .layout-container .top-pane {
   width: 100%;
+  box-sizing: border-box;
   height: 60px;
   border-bottom: 0.4px solid #dbd4ea;
   display: flex;
   overflow: hidden;
   align-items: center;
+  justify-content: space-around;
   position: sticky;
   top: 0;
   z-index: 3;
+  overflow: hidden;
   background-color: white;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
@@ -29,14 +38,15 @@ body {
   width: 60px;
   height: 60px;
   cursor: pointer;
-  margin-left: 1rem;
+  /* margin-left: 1rem; */
 }
 
 .layout-container .top-pane .search {
   width: 50%;
   height: 40px;
-  margin: 0 1em 0 0;
-  margin-left: 7.7rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
 }
 
 .layout-container .top-pane .search input.search-input {
@@ -51,11 +61,13 @@ body {
   height: 23px;
   color: #1f1730;
   cursor: pointer;
+  margin-left: 10px;
 }
 
 .layout-container .left-pane-wrapper {
   display: flex;
   width: 100%;
+  overflow: hidden;
 }
 
 .layout-container .left-pane-wrapper .left-pane {
@@ -65,12 +77,13 @@ body {
   display: grid;
 }
 
-.layout-container .main-content {
+.layout-container .left-pane-wrapper .main-content {
   width: 100%;
   height: auto;
   display: flex;
   flex-direction: column;
   padding: 3em 0;
+  overflow-x: scroll;
 }
 
 .layout-container .left-pane-wrapper .main-content table {
@@ -210,6 +223,18 @@ body {
   background-color: #8770b8;
   color: white;
   border-radius: 5px;
+}
+
+.logout-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .layout-container .left-pane-wrapper .left-pane {
+    display: none;
+  }
 }
 
 @keyframes shimmer {

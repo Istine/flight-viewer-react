@@ -27,3 +27,15 @@ export const waitFor = (seconds: number) => {
     }, seconds * 1000);
   });
 };
+
+export const formatTime = (firstSeen: number) => {
+  return (
+    new Date(firstSeen * 1000).toLocaleString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      second: "numeric",
+      hour12: true,
+      timeZone: "GMT",
+    }) + "  GMT"
+  );
+};

@@ -5,7 +5,7 @@ import TableSkeleton from "../components/TableSkeleton";
 import { useGet } from "../hooks/useGet";
 import ReactPaginate from "react-paginate";
 
-const itemsPerPage = 15;
+const itemsPerPage = 30;
 
 const DashBoard: React.FC<{}> = () => {
   const [data, errors, isLoading] = useGet();
@@ -43,11 +43,11 @@ const DashBoard: React.FC<{}> = () => {
       <Table data={currentItems} />
       <ReactPaginate
         breakLabel="..."
-        nextLabel="next >"
+        nextLabel=">"
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
         pageCount={pageCount}
-        previousLabel="< previous"
+        previousLabel="< "
         renderOnZeroPageCount={null}
         pageLinkClassName="page-name"
         pageClassName="page-link"

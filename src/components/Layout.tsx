@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../assets/Flair_Airlines_logo.svg";
-import TextField from "./TextField";
 import { GoSearch } from "react-icons/go";
+import { AiOutlineLogout } from "react-icons/ai";
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [search, setSearch] = React.useState("");
@@ -22,10 +22,12 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             value={search}
             onChange={handleSearchInputChange}
             type="text"
+            autoComplete="off"
             placeholder="Search by Airport "
           />
+          <GoSearch className="search-icon" />
         </div>
-        <GoSearch className="search-icon" />
+        <AiOutlineLogout className="logout-icon" />
       </div>
       <div className="left-pane-wrapper">
         <div className="left-pane"></div>
