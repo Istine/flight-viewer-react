@@ -122,7 +122,7 @@ const Login: React.FC<{}> = () => {
               }}
             >
               <div
-                className="form-control"
+                className="form-control check-container"
                 onClick={handleCheckbox}
                 style={{
                   width: "95px",

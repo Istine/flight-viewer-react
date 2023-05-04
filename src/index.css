@@ -18,6 +18,7 @@ body {
 
 .wrapper {
   width: 100%;
+  margin: 0 auto;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -166,5 +167,73 @@ footer a {
 
   .container form {
     width: 350px;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .container {
+    min-width: 500px;
+  }
+
+  .container h3 {
+    margin: 0;
+    font-size: 25px;
+  }
+
+  .container img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .container p {
+    max-width: 350px;
+    margin: 0.5rem 0;
+    font-size: 16px;
+    color: #4d4d4d;
+    text-align: center;
+  }
+
+  .container .login-form-error {
+    font-size: 14px;
+    color: red;
+    text-transform: capitalize;
+  }
+
+  .form-control {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #aba2be;
+    align-items: center;
+    background-color: #f6f3fc;
+    border-radius: 5px;
+    margin-bottom: 1.4rem;
+    overflow-x: hidden;
+  }
+  input {
+    font-size: 16px;
+  }
+
+  .check-container {
+    width: 125px !important;
+    height: auto !important;
+  }
+
+  .check-box {
+    width: 20px;
+    height: 20px;
+  }
+
+  .form-control span {
+    font-size: 13px;
+  }
+
+  .form-control span.forgot-password {
+    font-size: 13px;
+  }
+
+  button {
+    height: 50px;
   }
 }
