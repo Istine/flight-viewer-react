@@ -145,7 +145,7 @@ const Login: React.FC<{}> = () => {
           </form>
         </div>
         <footer>
-          <a href="#">Read Docs</a>
+          <a href="#">Read the Docs</a>
         </footer>
       </div>
     </>
