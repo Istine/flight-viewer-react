@@ -6,10 +6,13 @@ import { useNavigate } from "react-router-dom";
 import { Guard } from "../Guard";
 import Button from "./Button";
 import { GoArrowDown } from "react-icons/go";
+import { AiOutlineMenu } from "react-icons/ai";
 import { ITimeRangeContext, useTimeRange } from "../context/time-range";
+import SideBar from "./SideBar";
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [search, setSearch] = React.useState("");
+  const [open, setOpen] = React.useState(false);
 
   const [begin, end, , setTime] = useTimeRange();
 
@@ -42,9 +45,34 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
       }));
   };
 
+  const toggleMenu = (e: React.MouseEvent<HTMLOrSVGElement>) => {
+    e.stopPropagation();
+    setOpen((prevState) => !prevState);
+  };
+
+  const handleDocumentCloseMenu = (e: Event) => {
+    if (!(e.target as HTMLDivElement).classList.contains("sidebar ")) {
+      setOpen(false);
+    }
+  };
+
+  React.useEffect(() => {
+    document.addEventListener("click", handleDocumentCloseMenu);
+
+    return () => {
+      document.removeEventListener("click", handleDocumentCloseMenu);
+    };
+  }, []);
+
   return (
     <div className="layout-container">
+      <SideBar
+        handleLogout={handleLogout}
+        toggleMenu={toggleMenu}
+        open={open}
+      />
       <div className="top-pane">
+        <AiOutlineMenu onClick={toggleMenu} className={`hamburger-icon`} />
         <img src={logo} alt="flair airlines logo" />
         <div className="search">
           <input

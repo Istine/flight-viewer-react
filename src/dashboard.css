@@ -34,6 +34,10 @@ body {
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
+.layout-container .top-pane .hamburger-icon {
+  display: none;
+}
+
 .layout-container .top-pane img {
   width: 60px;
   height: 60px;
@@ -287,6 +291,27 @@ body {
 @media screen and (max-width: 600px) {
   .layout-container .left-pane-wrapper .left-pane {
     display: none;
+  }
+
+  .top-pane .search,
+  .top-pane .search-icon,
+  .top-pane input,
+  .top-pane img,
+  .top-pane .logout-container {
+    display: none;
+  }
+
+  .layout-container .top-pane {
+    height: 50px;
+    padding: 0 1rem;
+    justify-content: flex-start;
+  }
+
+  .layout-container .top-pane .hamburger-icon {
+    display: block;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
   }
 }
 
