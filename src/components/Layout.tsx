@@ -2,12 +2,21 @@ import React from "react";
 import logo from "../assets/Flair_Airlines_logo.svg";
 import { GoSearch } from "react-icons/go";
 import { AiOutlineLogout } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+import { Guard } from "../Guard";
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [search, setSearch] = React.useState("");
 
+  const navigate = useNavigate();
+
   const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(e.target.value);
+  };
+
+  const handleLogout = (e: React.MouseEvent<HTMLOrSVGElement>) => {
+    localStorage.setItem("isLoggedIn", JSON.stringify(false));
+    navigate("/");
   };
 
   return (
@@ -27,7 +36,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           />
           <GoSearch className="search-icon" />
         </div>
-        <AiOutlineLogout className="logout-icon" />
+        <div onClick={handleLogout} className="logout-container">
+          <AiOutlineLogout className="logout-icon" />
+          <span>Logout</span>
+        </div>
       </div>
       <div className="left-pane-wrapper">
         <div className="left-pane"></div>
@@ -37,4 +49,4 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   );
 };
 
-export default Layout;
+export default Guard(Layout);

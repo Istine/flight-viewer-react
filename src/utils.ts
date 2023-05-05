@@ -13,7 +13,7 @@ export const validateLogin = (data: Login): [boolean, string | null] => {
     error = "Please enter a valid email address ";
   } else if (!password) {
     error = "Please enter a password ";
-  } else if (email !== "admin@mail.com" && password !== "admin") {
+  } else if (email !== "admin@mail.com" || password !== "admin") {
     error = "invalid email or password ";
   }
   if (error) return [false, error];

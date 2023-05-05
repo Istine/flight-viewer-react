@@ -11,26 +11,28 @@ const Table: React.FC<{ data: IOpenSkyData }> = ({ data }) => {
   return (
     <table>
       <thead>
-        <th>
-          <span>Flight</span>
-          <img src={airplane} alt="flight icon" />
-        </th>
-        <th>
-          <span>Departure Airport</span>
-          <img src={departureAirport} alt="departure airport icon" />
-        </th>
-        <th>
-          <span>Departing Time</span>
-          <img src={time} alt="departing time icon" />
-        </th>
-        <th>
-          <span>Arrival Airport</span>
-          <img src={arrivalAirport} alt="arrival airport icon" />
-        </th>
-        <th>
-          <span>Arrival Time</span>
-          <img src={time} alt="arrival time icon" />
-        </th>
+        <tr>
+          <th>
+            <span>Flight</span>
+            <img src={airplane} alt="flight icon" />
+          </th>
+          <th>
+            <span>Departure Airport</span>
+            <img src={departureAirport} alt="departure airport icon" />
+          </th>
+          <th>
+            <span>Departing Time</span>
+            <img src={time} alt="departing time icon" />
+          </th>
+          <th>
+            <span>Arrival Airport</span>
+            <img src={arrivalAirport} alt="arrival airport icon" />
+          </th>
+          <th>
+            <span>Arrival Time</span>
+            <img src={time} alt="arrival time icon" />
+          </th>
+        </tr>
       </thead>
       <tbody>
         {data.map((record, key) => (

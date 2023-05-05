@@ -5,6 +5,7 @@ import { GoMention, GoEyeClosed, GoEye } from "react-icons/go";
 import Button from "../components/Button";
 import CheckBox from "../components/CheckBox";
 import { validateLogin, waitFor } from "../utils";
+import { useNavigate } from "react-router-dom";
 
 type UserLogin = {
   email: string;
@@ -14,6 +15,8 @@ type UserLogin = {
 };
 
 const Login: React.FC<{}> = () => {
+  const navigate = useNavigate();
+
   const [loginFormState, setLoginFormState] = React.useState<UserLogin>({
     email: "",
     password: "",
@@ -59,7 +62,9 @@ const Login: React.FC<{}> = () => {
     } else {
       setLoading(true);
       await waitFor(1);
+      localStorage.setItem("isLoggedIn", JSON.stringify(true));
       setLoading(false);
+      navigate("/dashboard");
     }
   };
 
