@@ -28,9 +28,9 @@ export const waitFor = (seconds: number) => {
   });
 };
 
-export const formatTime = (firstSeen: number) => {
+export const formatTime = (time: number) => {
   return (
-    new Date(firstSeen * 1000).toLocaleString("en-US", {
+    new Date(time * 1000).toLocaleString("en-US", {
       hour: "numeric",
       minute: "numeric",
       second: "numeric",
@@ -38,4 +38,18 @@ export const formatTime = (firstSeen: number) => {
       timeZone: "GMT",
     }) + "  GMT"
   );
+};
+
+export const convertStringTimeToEpoch = (time: string) => {
+  const today = new Date().toLocaleDateString();
+  const newDate = `${today} ${time}`;
+  const epoch = new Date(newDate).getTime();
+
+  return epoch / 1000;
+};
+
+export const convertStringTimeToEpoch2 = (time: string) => {
+  const newDate = `${time}`;
+  const epoch = new Date(newDate).getTime();
+  return epoch / 1000;
 };

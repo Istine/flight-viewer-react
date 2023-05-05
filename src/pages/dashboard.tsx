@@ -4,11 +4,14 @@ import Table, { IOpenSkyData } from "../components/Table";
 import TableSkeleton from "../components/TableSkeleton";
 import { useGet } from "../hooks/useGet";
 import ReactPaginate from "react-paginate";
+import { useTimeRange } from "../context/time-range";
 
 const itemsPerPage = 30;
 
 const DashBoard: React.FC<{}> = () => {
-  const [data, errors, isLoading] = useGet();
+  const [begin, end, loading] = useTimeRange();
+
+  const [data, errors, isLoading] = useGet(begin, end, loading);
 
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.

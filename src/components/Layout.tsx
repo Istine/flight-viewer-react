@@ -4,9 +4,14 @@ import { GoSearch } from "react-icons/go";
 import { AiOutlineLogout } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { Guard } from "../Guard";
+import Button from "./Button";
+import { GoArrowDown } from "react-icons/go";
+import { ITimeRangeContext, useTimeRange } from "../context/time-range";
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [search, setSearch] = React.useState("");
+
+  const [begin, end, , setTime] = useTimeRange();
 
   const navigate = useNavigate();
 
@@ -17,6 +22,24 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const handleLogout = (e: React.MouseEvent<HTMLOrSVGElement>) => {
     localStorage.setItem("isLoggedIn", JSON.stringify(false));
     navigate("/");
+  };
+
+  const handleTimeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+
+    setTime((prevState: ITimeRangeContext) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const findByTimeRange = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (begin && end)
+      setTime((prevState: ITimeRangeContext) => ({
+        ...prevState,
+        loading: !prevState.loading,
+      }));
   };
 
   return (
@@ -42,7 +65,34 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         </div>
       </div>
       <div className="left-pane-wrapper">
-        <div className="left-pane"></div>
+        <div className="left-pane">
+          <span className="time-selector-label">Enter time range</span>
+          <form>
+            <input
+              className="time-input"
+              value={begin}
+              name="begin"
+              required
+              onChange={handleTimeChange}
+              type="text"
+              placeholder="8:32"
+            />
+            <GoArrowDown className="arrow-down" />
+            <input
+              className="time-input"
+              value={end}
+              name="end"
+              required
+              onChange={handleTimeChange}
+              type="text"
+              placeholder="10:32"
+            />
+            <Button text="Find" handler={findByTimeRange} />
+            <p>
+              <i>time difference cannot exceed 2hrs</i>
+            </p>
+          </form>
+        </div>
         <div className="main-content">{children}</div>
       </div>
     </div>

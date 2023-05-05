@@ -67,14 +67,47 @@ body {
 .layout-container .left-pane-wrapper {
   display: flex;
   width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
+  position: relative;
 }
 
 .layout-container .left-pane-wrapper .left-pane {
   width: 200px;
   height: 100vh;
   border-right: 0.4px solid #dbd4ea;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 1rem;
+  position: sticky;
+  top: 60px;
+}
+
+.layout-container .left-pane-wrapper .left-pane form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.layout-container .left-pane-wrapper .left-pane .time-selector-label {
+  font-size: 0.8rem;
+  padding: 0 1rem;
+  margin: 2rem 0;
+  text-transform: capitalize;
+}
+
+.layout-container .left-pane-wrapper .left-pane .time-input {
+  outline: none;
+  border: 0.5px solid #414141;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+}
+
+.layout-container .left-pane-wrapper .left-pane p {
+  font-size: 10px;
+  text-align: left;
+  margin-top: 10px;
+  text-transform: capitalize;
 }
 
 .layout-container .left-pane-wrapper .main-content {
@@ -220,9 +253,10 @@ body {
   max-width: 100px;
   text-align: center;
   text-transform: capitalize;
-  padding: 0.5rem.1rem;
+  padding: 0.5rem 0.7rem;
   background-color: #8770b8;
   color: white;
+  font-size: 12px;
   border-radius: 5px;
 }
 
@@ -242,6 +276,12 @@ body {
   font-size: 13px;
   margin: 0 0.4rem;
   cursor: pointer;
+}
+
+.arrow-down {
+  margin: 1rem 0;
+  width: 20px;
+  height: 20px;
 }
 
 @media screen and (max-width: 600px) {
