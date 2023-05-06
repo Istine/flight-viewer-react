@@ -158,6 +158,7 @@ footer a {
   color: #2d175c;
   font-size: 13px;
   margin-top: 0.5rem;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {

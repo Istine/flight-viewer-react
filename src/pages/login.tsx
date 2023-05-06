@@ -14,7 +14,13 @@ type UserLogin = {
   showPassword: boolean;
 };
 
-const Login: React.FC<{}> = () => {
+const Login: React.FC<{
+  goTo: (
+    url: string
+  ) => (
+    e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement | HTMLSpanElement>
+  ) => void;
+}> = ({ goTo }) => {
   const navigate = useNavigate();
 
   const [loginFormState, setLoginFormState] = React.useState<UserLogin>({
@@ -140,7 +146,9 @@ const Login: React.FC<{}> = () => {
               >
                 <CheckBox text="remember me" value={loginFormState.check} />
               </div>
-              <span className="forgot-password">forgot password</span>
+              <span onClick={goTo("/docs")} className="forgot-password">
+                forgot password
+              </span>
             </div>
             <Button
               text={buttonText}
@@ -150,7 +158,7 @@ const Login: React.FC<{}> = () => {
           </form>
         </div>
         <footer>
-          <a href="#">Read the Docs</a>
+          <a onClick={goTo("/docs")}>Read the Docs</a>
         </footer>
       </div>
     </>

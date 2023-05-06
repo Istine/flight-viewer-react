@@ -62,7 +62,6 @@ export const filterbySearchInput = (
   defaultData: any
 ) => {
   const found = data[search.toLowerCase()];
-  console.log(data);
 
   if (found) return found;
   return defaultData;

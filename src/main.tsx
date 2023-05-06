@@ -5,6 +5,7 @@ import "./index.css";
 import "./dashboard.css";
 import "./paginate.css";
 import "./mobile-view.css";
+import "./docs.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>

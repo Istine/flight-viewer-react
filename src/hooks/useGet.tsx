@@ -2,6 +2,7 @@ import React from "react";
 import { IOpenSkyData } from "../components/Table";
 import { convertStringTimeToEpoch, convertStringTimeToEpoch2 } from "../utils";
 
+//time difference on first page load
 const fourHoursBefore = new Date(Date.now() - 13200000).toUTCString();
 const fiveHoursBefore = new Date(Date.now() - 16800000).toUTCString();
 
