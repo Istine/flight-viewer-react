@@ -4,6 +4,7 @@ import time from "../assets/time.png";
 import arrivalAirport from "../assets/airport2.png";
 import Badge from "./Badge";
 import { formatTime } from "../utils";
+import React from "react";
 
 export type IOpenSkyData = { [key: string]: string }[];
 
@@ -79,4 +80,4 @@ const Table: React.FC<{ data: IOpenSkyData }> = ({ data }) => {
   );
 };
 
-export default Table;
+export default React.memo(Table);

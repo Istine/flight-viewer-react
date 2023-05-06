@@ -1,6 +1,5 @@
 import React from "react";
 import { AiOutlineClose } from "react-icons/ai";
-import { AiOutlineLogout } from "react-icons/ai";
 
 const SideBar: React.FC<{
   open: boolean;

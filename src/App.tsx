@@ -12,7 +12,11 @@ import Docs from "./pages/Docs";
 const App = () => {
   const goTo =
     (url: string) =>
-    (e: React.MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
+    (
+      e: React.MouseEvent<
+        HTMLAnchorElement | HTMLButtonElement | HTMLSpanElement
+      >
+    ) => {
       location.href = url;
     };
 
