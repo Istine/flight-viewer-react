@@ -12,6 +12,7 @@ body {
 .layout-container {
   width: 100%;
   max-width: 1300px;
+  min-height: 100vh;
   margin: 0 auto;
   position: relative;
 }
@@ -72,13 +73,13 @@ body {
 .layout-container .left-pane-wrapper {
   display: flex;
   width: 100%;
-  /* overflow: hidden; */
+  height: 100%;
   position: relative;
 }
 
 .layout-container .left-pane-wrapper .left-pane {
   width: 200px;
-  height: 100vh;
+  height: 100%;
   border-right: 0.4px solid #dbd4ea;
   display: flex;
   flex-direction: column;

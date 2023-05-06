@@ -34,6 +34,10 @@ const DashBoard: React.FC<{}> = () => {
 
   currentItems = filterbySearchInput(formattedData, search, tableData);
 
+  if (currentItems.length > 1) {
+    currentItems = tableData.slice(itemOffset, endOffset);
+  }
+
   // Invoke when user click to request another page.
   const handlePageClick = (e: any) => {
     const newOffset = (e.selected * itemsPerPage) % tableData.length;
