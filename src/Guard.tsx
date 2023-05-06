@@ -6,7 +6,7 @@ export const Guard = (Component: React.FC<any>) => {
 
     if (!isUserLoggedIn) {
       location.href = "/";
-      return;
+      return <></>;
     }
     return <Component {...props} />;
   };

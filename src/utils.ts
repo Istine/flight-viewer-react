@@ -1,3 +1,5 @@
+import { IOpenSkyData } from "./components/Table";
+
 type Login = {
   email: string;
   password: string;
@@ -52,4 +54,28 @@ export const convertStringTimeToEpoch2 = (time: string) => {
   const newDate = `${time}`;
   const epoch = new Date(newDate).getTime();
   return epoch / 1000;
+};
+
+export const filterbySearchInput = (
+  data: any,
+  search: string,
+  defaultData: any
+) => {
+  const found = data[search.toLowerCase()];
+  console.log(data);
+
+  if (found) return found;
+  return defaultData;
+};
+export const formatData = (data: IOpenSkyData) => {
+  let hashTable: { [key: string]: any } = {};
+  const store = JSON.parse(localStorage.getItem("store") as string);
+  if (store) return store;
+  else {
+    data.forEach((record) => {
+      const callsign = record.callsign ? record.callsign : "NILL";
+      hashTable[callsign.toLowerCase().trim()] = [record];
+    });
+    return hashTable;
+  }
 };

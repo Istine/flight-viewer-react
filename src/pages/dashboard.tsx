@@ -5,10 +5,13 @@ import TableSkeleton from "../components/TableSkeleton";
 import { useGet } from "../hooks/useGet";
 import ReactPaginate from "react-paginate";
 import { useTimeRange } from "../context/time-range";
+import { filterbySearchInput, formatData } from "../utils";
 
 const itemsPerPage = 30;
 
 const DashBoard: React.FC<{}> = () => {
+  const [search, setSearch] = React.useState("");
+
   const [begin, end, loading] = useTimeRange();
 
   const [data, errors, isLoading] = useGet(begin, end, loading);
@@ -19,18 +22,27 @@ const DashBoard: React.FC<{}> = () => {
 
   const tableData = data as IOpenSkyData;
 
+  const formattedData = formatData(tableData);
+
   // Simulate fetching items from another resources.
   // (This could be items from props; or items loaded in a local state
   // from an API endpoint with useEffect and useState)
   const endOffset = itemOffset + itemsPerPage;
-  const currentItems = tableData.slice(itemOffset, endOffset);
+  let currentItems = tableData.slice(itemOffset, endOffset);
+
   const pageCount = Math.ceil(tableData.length / itemsPerPage);
+
+  currentItems = filterbySearchInput(formattedData, search, tableData);
 
   // Invoke when user click to request another page.
   const handlePageClick = (e: any) => {
     const newOffset = (e.selected * itemsPerPage) % tableData.length;
 
     setItemOffset(newOffset);
+  };
+
+  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
   };
 
   if (isLoading) {
@@ -42,7 +54,7 @@ const DashBoard: React.FC<{}> = () => {
   }
 
   return (
-    <Layout>
+    <Layout search={search} handleSearchInputChange={handleSearchInputChange}>
       <Table data={currentItems} />
       <ReactPaginate
         breakLabel="..."

@@ -10,17 +10,16 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { ITimeRangeContext, useTimeRange } from "../context/time-range";
 import SideBar from "./SideBar";
 
-const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [search, setSearch] = React.useState("");
+const Layout: React.FC<{
+  children: React.ReactNode;
+  search: string;
+  handleSearchInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}> = ({ children, handleSearchInputChange, search }) => {
   const [open, setOpen] = React.useState(false);
 
   const [begin, end, , setTime] = useTimeRange();
 
   const navigate = useNavigate();
-
-  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
-  };
 
   const handleLogout = (e: React.MouseEvent<HTMLOrSVGElement>) => {
     localStorage.setItem("isLoggedIn", JSON.stringify(false));
