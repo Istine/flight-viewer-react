@@ -44,14 +44,14 @@ const Login: React.FC<{
     }));
   };
 
-  const handleCheckbox = (e: React.MouseEvent<HTMLDivElement>) => {
+  const handleCheckbox = (_e: React.MouseEvent<HTMLDivElement>) => {
     setLoginFormState((prevState: UserLogin) => ({
       ...prevState,
       check: !prevState.check,
     }));
   };
 
-  const togglePasswordVisibilty = (e: React.MouseEvent<HTMLOrSVGElement>) => {
+  const togglePasswordVisibilty = (_e: React.MouseEvent<HTMLOrSVGElement>) => {
     setLoginFormState((prevState: UserLogin) => ({
       ...prevState,
       showPassword: !prevState.showPassword,

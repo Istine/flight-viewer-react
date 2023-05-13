@@ -8,7 +8,7 @@ const TableSkeleton: React.FC<{}> = () => {
         <SkeletonHeader />
       </div>
       <div className="skeleton-container">
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item, key) => (
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((_, key) => (
           <Skeleton key={key} />
         ))}
       </div>

@@ -14,7 +14,7 @@ const DashBoard: React.FC<{}> = () => {
 
   const [begin, end, loading] = useTimeRange();
 
-  const [data, errors, isLoading] = useGet(begin, end, loading);
+  const [data, , isLoading] = useGet(begin, end, loading);
 
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.

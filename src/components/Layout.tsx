@@ -21,7 +21,7 @@ const Layout: React.FC<{
 
   const navigate = useNavigate();
 
-  const handleLogout = (e: React.MouseEvent<HTMLOrSVGElement>) => {
+  const handleLogout = (_e: React.MouseEvent<HTMLOrSVGElement>) => {
     localStorage.setItem("isLoggedIn", JSON.stringify(false));
     navigate("/");
   };

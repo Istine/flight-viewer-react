@@ -1,9 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  useNavigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./pages/login";
 import DashBoard from "./pages/dashboard";
 import GlobalContext from "./context/time-range";
@@ -13,7 +8,7 @@ const App = () => {
   const goTo =
     (url: string) =>
     (
-      e: React.MouseEvent<
+      _e: React.MouseEvent<
         HTMLAnchorElement | HTMLButtonElement | HTMLSpanElement
       >
     ) => {
