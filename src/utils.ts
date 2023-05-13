@@ -43,17 +43,16 @@ export const formatTime = (time: number) => {
 };
 
 export const convertStringTimeToEpoch = (time: string) => {
-  const today = new Date().toLocaleDateString();
-  const newDate = `${today} ${time}`;
-  const epoch = new Date(newDate).getTime();
-
-  return epoch / 1000;
-};
-
-export const convertStringTimeToEpoch2 = (time: string) => {
-  const newDate = `${time}`;
-  const epoch = new Date(newDate).getTime();
-  return epoch / 1000;
+  const date = new Date(time);
+  if (isNaN(date.getTime())) {
+    const today = new Date().toLocaleDateString();
+    const newDate = `${today} ${time}`;
+    const epoch = new Date(newDate).getTime();
+    return epoch / 1000;
+  } else {
+    const epoch = new Date(time).getTime();
+    return epoch / 1000;
+  }
 };
 
 export const filterbySearchInput = (

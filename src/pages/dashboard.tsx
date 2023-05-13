@@ -31,8 +31,8 @@ const DashBoard: React.FC<{}> = () => {
   let currentItems = tableData.slice(itemOffset, endOffset);
 
   const pageCount = Math.ceil(tableData.length / itemsPerPage);
-
-  currentItems = filterbySearchInput(formattedData, search, tableData);
+  if (search)
+    currentItems = filterbySearchInput(formattedData, search, tableData);
 
   if (currentItems.length > 1) {
     currentItems = tableData.slice(itemOffset, endOffset);
