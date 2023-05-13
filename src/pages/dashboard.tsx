@@ -45,9 +45,12 @@ const DashBoard: React.FC<{}> = () => {
     setItemOffset(newOffset);
   };
 
-  const handleSearchInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
-  };
+  const handleSearchInputChange = React.useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setSearch(e.target.value);
+    },
+    [search]
+  );
 
   if (isLoading) {
     return (

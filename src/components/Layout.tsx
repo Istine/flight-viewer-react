@@ -14,7 +14,7 @@ const Layout: React.FC<{
   children: React.ReactNode;
   search: string;
   handleSearchInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}> = ({ children, handleSearchInputChange, search }) => {
+}> = ({ children, handleSearchInputChange, search = "" }) => {
   const [open, setOpen] = React.useState(false);
 
   const [begin, end, , setTime] = useTimeRange();
@@ -126,4 +126,4 @@ const Layout: React.FC<{
   );
 };
 
-export default Guard(Layout);
+export default Guard(React.memo(Layout));
